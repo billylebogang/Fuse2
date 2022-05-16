@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fuse2</string>
+    <string name="menu_drawer_close">Drawer close</string>
+    <string name="menu_drawer_open">Drawer open</string>
+
+
+</resources>
