@@ -1,7 +1,6 @@
 package com.example.fuse2;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class Reserves extends DrawerBase {
 
@@ -25,9 +24,9 @@ public class Reserves extends DrawerBase {
 
     DatabaseReference resserveRef;
 
-    ReserveAdapter reserveAdapter;
+     ReservesAdapter reservesAdapter;
 
-    ArrayList<HashMap> reservelist;
+    ArrayList reservelist;
 
     RecyclerView recyclerView;
 
@@ -44,13 +43,15 @@ public class Reserves extends DrawerBase {
 
         setContentView(activityReservesBinding.getRoot());
 
-        resserveRef = FirebaseDatabase.getInstance().getReference("Reserves");
 
-        getData();
+        resserveRef = FirebaseDatabase.getInstance().getReference("myReserve");
+
+        Log.e("TAG", "onCreate: reserves on get data " );
+        getReserves();
 
     }
 
-    private void getData() {
+    private void getReserves() {
 
 
         recyclerView = findViewById(R.id.reservesView);
@@ -60,35 +61,42 @@ public class Reserves extends DrawerBase {
 
 
         reservelist = new ArrayList<>();
-        reserveAdapter = new ReserveAdapter(this, reservelist);
-        recyclerView.setAdapter(reserveAdapter);
 
+        reservesAdapter = new ReservesAdapter(this, reservelist);
+        recyclerView.setAdapter(reservesAdapter);
 
-        resserveRef.addValueEventListener(new ValueEventListener() {
+        Log.e("TAG", "onCreate: inside on get data " );
+
+        resserveRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for( DataSnapshot dataSnapshot : snapshot.getChildren() ) {
 
-                    HashMap<String, String> map = (HashMap<String, String>) dataSnapshot.getValue();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                    if(map.get("reserveEmail").equalsIgnoreCase(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                        reservelist.add(map);
-                    }
+                    UserDetails usr = dataSnapshot.getValue(UserDetails.class);
 
 
+                    Log.e("reserves", "onDataChange: "+ usr );
 
-                    Log.e("RESERVES", "onDataChange: " + dataSnapshot.getValue());
+                    reservelist.add(usr);
+                    //adding user with location gh only
+                    // if(usr.getLocation().equalsIgnoreCase("gh")){
+
+                    //}
+
                 }
-                reserveAdapter.notifyDataSetChanged();
+                reservesAdapter.notifyDataSetChanged();
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Log.e("RESERVE", "onCancelled: "+ error.getMessage() );
-
             }
+
         });
+
+
     }
 }

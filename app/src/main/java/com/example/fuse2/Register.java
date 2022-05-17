@@ -12,6 +12,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,16 +42,18 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
 
 
     //FROM UI
+    private String selectedlocation;
     private EditText  password, password2;
     private Button registerBtn , registerLoginBtn;
     private ProgressBar progressBar;
 
     //still ui staff
-    private EditText registerName,registerSurname, registerEmail,registerBirthdate, registerLocation;
+    private EditText registerName,registerSurname, registerEmail,registerBirthdate;
+    private Spinner  registerLocation;
     private Button profileSetupNextBtn, selectDate;
     private RadioGroup registerGenderGroup;
     private RadioButton genderButton;
@@ -70,8 +76,6 @@ public class Register extends AppCompatActivity {
 
 
         //initializing the fields
-        password = findViewById(R.id.password);
-        password2 = findViewById(R.id.password2);
         progressBar = findViewById(R.id.loading);
         registerBtn = findViewById(R.id.registerBtn);
         registerLoginBtn = findViewById(R.id.registerLoginBtn);
@@ -80,16 +84,10 @@ public class Register extends AppCompatActivity {
         registerSurname = findViewById(R.id.registerSurname);
         registerEmail = findViewById(R.id.registerEmail);
         registerBirthdate = findViewById(R.id.registerBirthdate);
-        registerLocation = findViewById(R.id.RegisterLocation);
         selectDate = findViewById(R.id.selectDate);
         errorBar = findViewById(R.id.errorBar);
 
         registerGenderGroup = findViewById(R.id.registerGenderGroup);
-
-
-
-
-
 
 
         //database stuff
@@ -99,6 +97,8 @@ public class Register extends AppCompatActivity {
         mDatabase = database.getReference("userDetails");
 
 
+        //setting the email
+        registerEmail.setText(USER.getEmail());
 
         selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +111,7 @@ public class Register extends AppCompatActivity {
 
 
 
+        getlocation();
 
 
         //TODO: USE FULL CODE BELOW
@@ -119,7 +120,14 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                createAccount();
+                if(USER != null){
+                    createProfile(USER.getUid(),createUserDetails());
+                }
+                else{
+                    Toast.makeText(Register.this, "Can not set profile without account", Toast.LENGTH_SHORT).show();
+                }
+
+
 
 
             }
@@ -148,7 +156,7 @@ public class Register extends AppCompatActivity {
         String surname = registerSurname.getText().toString().trim();
         String email = registerEmail.getText().toString().trim();
         String birthday = registerBirthdate.getText().toString().trim();
-        String location = registerLocation.getText().toString().trim();
+        String location = selectedlocation;
 
 
         //gender thing
@@ -173,7 +181,7 @@ public class Register extends AppCompatActivity {
             registerEmail.setError("Email is required");
         }
         else if(TextUtils.isEmpty(location)){
-            registerLocation.setError("Location is required");
+            Toast.makeText(this, "Location is required", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(birthday)){
             registerBirthdate.setError("Birthdate is required");
@@ -237,77 +245,29 @@ public class Register extends AppCompatActivity {
 
 
 
+    public void getlocation(){
+
+        registerLocation = findViewById(R.id.RegisterLocation);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.places
+        , android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        registerLocation.setAdapter(adapter);
+
+        registerLocation.setOnItemSelectedListener(this);
 
 
-
-    public void createAccount(){
-
-
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //getting the input data
-                String useremail = registerEmail.getText().toString().trim();
-                String pass = password.getText().toString().trim();
-                String pass2 = password2.getText().toString().trim();
-
-                //validating the data inputs
-                if(TextUtils.isEmpty(useremail)){
-                    registerEmail.setError("Email is required");
-                    return;
-                }
-                if(TextUtils.isEmpty(pass)){
-                    password.setError("Password is required");
-                    return;
-                }
-                if(!(pass2.equals(pass)) ){
-                    password2.setError("Password must match");
-                    return;
-                }
-
-                else{
-                    //TODO make a loader to work as the User is being registered
-
-
-                    try {
-
-                        mAuth.createUserWithEmailAndPassword(useremail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                if(task.isSuccessful()){
-
-                                    String id = task.getResult().getUser().getUid();
-
-                                    System.out.println(task.isSuccessful() + "  "+ id);
-
-                                    //creating a db storage..
-                                    if(id!=null){createProfile(id, createUserDetails());}
-                                    else{
-                                        Log.e("CREATING USER ID", "onComplete: id is null " );
-                                    }
-
-                                    Toast.makeText(Register.this, "Registering"+ id, Toast.LENGTH_SHORT).show();
-
-                                }
-                                else{
-                                    Toast.makeText(Register.this, "Error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-
-                    }catch (Exception e){
-                        Log.e("TRY CREATING USER", "onClick: "+ e.getMessage());
-                    }
-
-                    Log.e("REGISTER", "onClick: creating of the account" );
-                }
-
-
-            }
-        });
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+         selectedlocation = adapterView.getItemAtPosition(i).toString();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

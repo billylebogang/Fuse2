@@ -7,22 +7,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveViewHolder> {
+public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.ReserveViewHolder> {
 
     Context context;
     ArrayList<HashMap> list;
@@ -31,14 +24,14 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveV
 
     //constructor
 
-    public ReserveAdapter(Context context, ArrayList list) {
+    public NotificationsAdapter(Context context, ArrayList list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public ReserveAdapter.ReserveViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotificationsAdapter.ReserveViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.itemreserves, parent, false);
         return new ReserveViewHolder(v);
     }
@@ -46,7 +39,7 @@ public class ReserveAdapter extends RecyclerView.Adapter<ReserveAdapter.ReserveV
 
 
     @Override
-    public void onBindViewHolder(@NonNull ReserveAdapter.ReserveViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationsAdapter.ReserveViewHolder holder, int position) {
 
 
         Map usr = list.get(position);

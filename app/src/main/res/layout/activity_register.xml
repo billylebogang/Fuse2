@@ -81,9 +81,10 @@
                 android:id="@+id/registerEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="false"
+                android:editable="false"
                 android:hint="Enter email"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,12 +112,10 @@
             </LinearLayout>
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/RegisterLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Location"
-                android:inputType="textPersonName"
                 />
 
             <RadioGroup
@@ -165,27 +164,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="15dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Set account password"/>
 
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="password"
-                    android:inputType="textPassword"
-                     />
-                <EditText
-                android:id="@+id/password2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="confirm password"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                />
 
                 <Button
                     android:id="@+id/registerBtn"

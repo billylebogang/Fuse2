@@ -59,8 +59,19 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
         holder.tick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addMatch(FirebaseAuth.getInstance().getCurrentUser().getUid(),usr);
-                createReservee(usr.getEmail());
+
+                addMatch(FirebaseAuth.getInstance().getCurrentUser().getUid(),usr); //adding this person as the match
+
+                createReservee(usr.getEmail()); // this is create a notification to the person u are matching with
+            }
+        });
+        holder.cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //method to add to your reserve, real reservations
+                addReserve(FirebaseAuth.getInstance().getCurrentUser().getUid(),usr);
+
             }
         });
 
@@ -107,6 +118,8 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
 
     public void addMatch(String id, UserDetails usr){
 
+        //this method adds the selected user to the matches, requested matches
+
         DatabaseReference matchesRef = FirebaseDatabase.getInstance().getReference("matches");
 
 
@@ -123,9 +136,28 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
 
 
     }
+    public void addReserve(String id, UserDetails usr){
+
+        //this method add the selected user to the reserve, the real reserve
+        DatabaseReference matchesRef = FirebaseDatabase.getInstance().getReference("myReserve");
 
 
-    public void createNotification(UserDetails usr){
+                matchesRef.child(id).child(usr.getName()+" "+usr.getSurname()).setValue(usr).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(context, "Added to reserves", Toast.LENGTH_SHORT).show();
+                        }
+                        else Toast.makeText(context, "Failed to add", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+    }
+
+
+   /* public void createNotification(UserDetails usr){
 
         DatabaseReference notificationRef = FirebaseDatabase.getInstance().getReference("notifications");
 
@@ -147,9 +179,12 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
                 Log.e("NOTIFICATION", "onFail: "+e.getMessage());
             }
         });
-    }
+    }*/
+
 
     public  void addToReserves(String name, String surname, String location, String email, String reserveEmail){
+
+        //this method create a map of the person you want to match with then a notification kind of
 
         DatabaseReference reservesRef = FirebaseDatabase.getInstance().getReference("Reserves");
 
@@ -175,7 +210,7 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
 
 
     }
-    public void createReservee(String res){
+    public void createReservee(String res){ // for adding a notification to the person you want to match with
 
         DatabaseReference detailsRef = FirebaseDatabase.getInstance().getReference("userDetails");
 

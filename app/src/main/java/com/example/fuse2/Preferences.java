@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class Preferences extends AppCompatActivity {
 
     protected EditText preferedLocation,fromAge, toAge, hobbies;
     protected RadioGroup preferedGenderRadioGroup;
+    protected RadioButton genderButton;
     protected ImageButton hobbieBtn;
     protected Button prefNextBtn;
 
@@ -64,17 +66,27 @@ public class Preferences extends AppCompatActivity {
 
                 //UI data capture
                 String location = preferedLocation.getText().toString().trim();
-                String age = fromAge.getText().toString().trim() +" - " + toAge.getText().toString().trim();
-                String gender = "Female"; //((RadioButton)findViewById(preferedGenderRadioGroup.getCheckedRadioButtonId())).getText().toString();
+                String ageFrom = fromAge.getText().toString().trim();
+                String ageTo = toAge.getText().toString().trim();
+
+
+                int radioId = preferedGenderRadioGroup.getCheckedRadioButtonId();
+
+                genderButton = findViewById(radioId);
+
+                String gender = genderButton.getText().toString();
 
 
                 if (TextUtils.isEmpty(location)) {
                     preferedLocation.setError("Please set Location");
                     return;
                 }
-                if(TextUtils.isEmpty(age)){
-                    toAge.setError("Please fill");
+                if(TextUtils.isEmpty(ageFrom)){
                     fromAge.setError("Please fill");
+                    return;
+                }
+                if(TextUtils.isEmpty(ageTo)){
+                    toAge.setError("Please fill");
                     return;
                 }
                 if(TextUtils.isEmpty(gender)){
@@ -84,7 +96,7 @@ public class Preferences extends AppCompatActivity {
 
                     if(USER != null){
                         String id = USER.getUid();
-                        setPrefs(id,location,age, gender);
+                        setPrefs(id,location,ageFrom,ageTo, gender);
 
                     }
                     else{
@@ -102,12 +114,13 @@ public class Preferences extends AppCompatActivity {
 
     // TODO: CODE IS HER BELOW
 
-    public void setPrefs(String userId, String location, String age,String gender){
+    public void setPrefs(String userId, String location, String ageFrom,String ageTo,String gender){
 
         //declaring a tree map to store the dat before passing it to the db
         TreeMap<String , String> prefs = new TreeMap<>();
         prefs.put("location", location);
-        prefs.put("age", age);
+        prefs.put("ageFrom", ageFrom);
+        prefs.put("ageTo", ageTo);
         prefs.put("gender", gender);
 
         mDatabase.child(userId).setValue(prefs).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -115,7 +128,18 @@ public class Preferences extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     System.out.println("pref has been set ..");
-                    startActivity(new Intent(Preferences.this, Dashboard.class));
+
+                    //if can not start the dashboard activity it should start thr login activity
+
+                    try {
+                        startActivity(new Intent(Preferences.this, Dashboard.class));
+                    }
+                    catch (Exception e){
+                        Toast.makeText(Preferences.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    finally {
+                        startActivity(new Intent(Preferences.this, Login.class));
+                    }
 
                 }
                 else{
