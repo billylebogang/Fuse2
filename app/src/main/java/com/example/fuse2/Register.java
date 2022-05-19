@@ -126,10 +126,6 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
                 else{
                     Toast.makeText(Register.this, "Can not set profile without account", Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
             }
         });
 

@@ -7,7 +7,7 @@
     app:cardCornerRadius="10dp"
     android:layout_margin="16dp"
     >
-<!--this one is used to for notifications, that is where u can accept and chat -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,29 +18,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:orientation="vertical"
+            android:layout_weight="3"
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/reservenames"
+                android:id="@+id/chat_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name Surname"
                 android:textColor="@color/black"
                 android:textSize="26sp"/>
-            <TextView
-                android:id="@+id/reserveAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="age"
-                android:textColor="@color/black"
-                android:textSize="24sp"/>
-            <TextView
-                android:id="@+id/reserveLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location "
-                android:textColor="@color/black"
-                android:textSize="23sp"/>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,24 +37,13 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/removeMatchBtn1"
+                    android:id="@+id/chat_message_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:text="reject"
+                    android:text="message"
                     app:srcCompat="@drawable/ic_cross_foreground" />
-
-                <Button
-                    android:id="@+id/add_to_chat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="2dp"
-                    android:adjustViewBounds="true"
-                    android:text="Add"
-                    app:srcCompat="@drawable/ic_cross_foreground" />
-
 
 
             </LinearLayout>
@@ -74,8 +52,8 @@
 
         <ImageView
             android:id="@+id/userdp1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/profile"
             android:adjustViewBounds="true"/>

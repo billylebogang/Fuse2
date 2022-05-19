@@ -66,7 +66,10 @@ public class Matches extends DrawerBase {
         mDatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+
                     UserDetails usr = dataSnapshot.getValue(UserDetails.class);
 
 

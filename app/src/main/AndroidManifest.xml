@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fuse2">
         <activity
+            android:name=".Messages"
+            android:exported="false" />
+        <activity
             android:name=".CreateAccount"
             android:exported="false" />
         <activity

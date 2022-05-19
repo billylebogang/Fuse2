@@ -12,10 +12,12 @@
         android:paddingTop="25dp"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatsView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="HEllo chats"/>
+            android:layout_height="match_parent" >
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
 

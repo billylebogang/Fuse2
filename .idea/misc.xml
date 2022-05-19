@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_drawer_base.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_matches.xml" value="0.1" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_messages.xml" value="0.25" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_notifications.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_preferences.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_register.xml" value="0.25" />
@@ -16,12 +17,14 @@
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_settings.xml" value="0.22" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_signin.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_welcome.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/chatItem.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/content_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/itemmatches.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/itemrealmatches.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/itemreserves.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/main_drawer_header.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/message_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/menu/main_drawer_menu.xml" value="0.22447916666666667" />
       </map>
     </option>
