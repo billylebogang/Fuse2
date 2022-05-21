@@ -20,8 +20,14 @@
             android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Messages"
+            android:text="Inbox"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:id="@+id/see_sent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="see sent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/messagesView"

@@ -37,15 +37,21 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ChatsViewHol
     @Override
     public void onBindViewHolder(@NonNull ChatsAdapter.ChatsViewHolder holder, int position) {
 
-        HashMap<String, String> map = (HashMap<String, String>) list.get(position);
+        //at first i used the hash map here, and was crappy.. note! intention was to get proper names
 
-        holder.chat_name.setText(map.get("name")+" "+map.get("surname"));
 
+        //this is the data that will be passed from the activity that fetches data
+        String map = (String) list.get(position);
+
+        //setting the name of the user name
+        holder.chat_name.setText(map);
+
+        //this will take u to the messages of the target user
         holder.messageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                getIntochat(map.get("name")+""+map.get("surname"));
+                //function called here and passing the string of the user_name of target
+                getIntochat(map);
 
             }
         });
@@ -57,6 +63,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ChatsViewHol
     public int getItemCount() {
         return list.size();
     }
+
 
     public class ChatsViewHolder extends RecyclerView.ViewHolder {
 
@@ -76,9 +83,13 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ChatsViewHol
 
 
     public void getIntochat(String friend_name){
-
+        //function that takes you to the messages from the chat section
         Intent intent = new Intent(context, Messages.class);
+
+        //this intent will be used to get messages of the user
         intent.putExtra("friend_name",friend_name );
         context.startActivity(intent);
 
-    }}
+    }
+
+}

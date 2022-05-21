@@ -78,7 +78,6 @@ public class Notifications extends DrawerBase {
                     }
 
 
-
                     Log.e("RESERVES", "onDataChange: " + dataSnapshot.getValue());
                 }
                 notificationsAdapter.notifyDataSetChanged();

@@ -41,12 +41,14 @@ public class Chats extends DrawerBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
+        //Drawer related code
         activityChatsBinding = ActivityChatsBinding.inflate(getLayoutInflater());
-
         allocateActivityTitle("Chats");
-
         setContentView(activityChatsBinding.getRoot());
+        //********************************************************************************************************
+        //*********************************************************************************************************
 
+        //getting the database reference
         DatabaseReference detailsRef = FirebaseDatabase.getInstance().getReference("userDetails");
 
         detailsRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -103,10 +105,12 @@ public class Chats extends DrawerBase {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                    HashMap<String, String> map = (HashMap<String, String>) dataSnapshot.getValue();
+                    //used the map at first, idea wa sto get the username in a proper way but it was crappy
+
+                   String map = (String) dataSnapshot.getKey();
 
                     arrayList.add(map);
-                    Log.e("CHATS", "onDataChange: "+map.get("name"));
+                    Log.e("CHATS Map", "onDataChange: "+map);
 
                 }
                 chatsAdapter.notifyDataSetChanged();
