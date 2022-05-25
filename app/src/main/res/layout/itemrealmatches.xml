@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="@color/buttons"
                     android:text="Remove"
                     app:srcCompat="@drawable/ic_cross_foreground" />
 

@@ -7,6 +7,7 @@
     tools:context=".Reserves">
 
     <LinearLayout
+        android:background="@drawable/untitled"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="25dp"
@@ -15,7 +16,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="HEllo reserves"/>
+            android:layout_marginBottom="15dp"
+            android:text="Reserves"
+            android:textSize="48sp" />
+
 
 
 

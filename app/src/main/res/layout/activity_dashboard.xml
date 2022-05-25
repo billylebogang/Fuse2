@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     tools:context=".Dashboard">
 
     <LinearLayout
@@ -35,16 +36,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
 
                 <TextView
-                    android:id="@+id/mynamehere"
+                    android:id="@+id/namehere"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name surname"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/white" />
+
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name Surname"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="age"
+                        android:id="@+id/pref_age"/>
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="location"
+                        android:id="@+id/pref_location"/>
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="pref_gender"
+                        android:id="@+id/pref_gender"/>
+                </LinearLayout>
             </LinearLayout>
+
+
 
 
         </LinearLayout>

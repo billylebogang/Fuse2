@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     ProgressBar loading;
 
     EditText username, password;
-    Button loginBtn, loginRegisterBtn;
+    Button loginBtn, loginRegisterBtn,resetpassword;
     FirebaseAuth mAuth;
 
     @Override
@@ -37,8 +37,34 @@ public class Login extends AppCompatActivity {
         loginRegisterBtn = findViewById(R.id.loginRegisterBtn);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-
+        resetpassword = findViewById(R.id.forgotPasswordBtn);
         loading = findViewById(R.id.loading);
+
+
+
+        //forgot password
+        resetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = username.getText().toString().trim();
+                if(TextUtils.isEmpty(email)){
+                    username.setError("User email required");
+                    return;
+                }                mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if(task.isSuccessful()){
+                            Toast.makeText(Login.this, "Email code sent, to reset password", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Login.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
 
 
         loginRegisterBtn.setOnClickListener(new View.OnClickListener() {

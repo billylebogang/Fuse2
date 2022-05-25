@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#00BCD4"
         android:orientation="vertical"
+        android:background="@color/primary"
         android:padding="10dp">
 
         <TextView
@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sent messages"
+            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <androidx.recyclerview.widget.RecyclerView

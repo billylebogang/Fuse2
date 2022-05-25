@@ -52,6 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="@color/buttons"
                     android:adjustViewBounds="true"
                     android:text="reject"
                     app:srcCompat="@drawable/ic_cross_foreground" />
@@ -63,6 +64,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="2dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="@color/buttons"
                     android:text="Add"
                     app:srcCompat="@drawable/ic_cross_foreground" />
 

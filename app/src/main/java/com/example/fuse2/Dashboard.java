@@ -46,7 +46,7 @@ public class Dashboard extends DrawerBase {
     ActivityDashboardBinding activityDashboardBinding;
 
 
-    TextView profileName;
+    TextView myName, pref_age, pref_location, pref_gender;
 
    // ImageButton profileImage;
 
@@ -84,7 +84,10 @@ public class Dashboard extends DrawerBase {
         //picture thing
        // profileImage = findViewById(R.id.dpImage);
 
-        profileName = findViewById(R.id.mynamehere);
+        myName = findViewById(R.id.namehere);
+        pref_age =findViewById(R.id.pref_age);
+        pref_location = findViewById(R.id.pref_location);
+        pref_gender = findViewById(R.id.pref_gender);
 
 
         //bind to the drawer
@@ -92,7 +95,7 @@ public class Dashboard extends DrawerBase {
         allocateActivityTitle("Dashboard");
         setContentView(activityDashboardBinding.getRoot());
 
-        getData(); // getting users to display for match
+        // getting users to display for match
 
         getUserData(); //getting user preferences
 
@@ -110,7 +113,7 @@ public class Dashboard extends DrawerBase {
 
 
 
-    public void getData(){
+    public void getData(String location, String gender, String to, String from){
         //ui
         listUsers = findViewById(R.id.listUsers);
 
@@ -128,12 +131,18 @@ public class Dashboard extends DrawerBase {
                     UserDetails usr = dataSnapshot.getValue(UserDetails.class);
 
 
-
-                    theList.add(usr);
                     //adding user with location gh only
-                   // if(usr.getLocation().equalsIgnoreCase("gh")){
-
-                    //}
+                    if(usr.getLocation().equalsIgnoreCase(location)) {
+                        if (gender.equalsIgnoreCase("women") && usr.getGender().equalsIgnoreCase("female")) {
+                            theList.add(usr);
+                        }
+                        else if(gender.equalsIgnoreCase("men") && usr.getGender().equalsIgnoreCase("male")){
+                            theList.add(usr);
+                        }
+                        else if (gender.equalsIgnoreCase("all")){
+                            theList.add(usr);
+                        }
+                    }
 
                 }
                 fa.notifyDataSetChanged();
@@ -156,7 +165,10 @@ public class Dashboard extends DrawerBase {
 
                 Log.e("USER DEATILS", "onDataChange: "+ usr.get("name") );
 
-                profileName.setText(usr.get("name"));
+                String myname = usr.get("name")+" "+usr.get("surname");
+                myName.setText(myname);
+
+
             }
 
             @Override
@@ -179,9 +191,18 @@ public class Dashboard extends DrawerBase {
 
                     map =(HashMap) task.getResult().getValue();
 
-                    Log.e("MAP", "onComplete: "+ map);
+                    pref_age.setText(map.get("ageFrom"));
+                    pref_location.setText(map.get("location"));
+                    pref_gender.setText(map.get("gender"));
 
-                    Log.e("MAP", "onComplete: "+ task.getResult().getValue());
+
+                    Log.e("AGE FROM", "onComplete: "+ map.get("ageFrom"));
+
+                    Log.e("LOCATION", "onComplete: "+ map.get("location"));
+
+                    Log.e("GENDER", "onComplete: "+ map.get("gender"));
+
+                    getData(map.get("location"),map.get("gender"), "20", "25");
 
                 }
                 else{

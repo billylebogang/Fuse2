@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Preferences"
+    android:background="@drawable/untitled"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="Set Preferences"
+        android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         />
 
@@ -70,8 +72,9 @@
             android:id="@+id/preferedGenderGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Interested in"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <RadioButton
                 android:id="@+id/preferedMen"
@@ -100,17 +103,14 @@
     </RadioGroup>
 
 
-
-
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="Add interest"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white" />
 
 
     <LinearLayout
@@ -128,6 +128,7 @@
             />
 
         <ImageButton
+            android:backgroundTint="@color/buttons"
             android:id="@+id/imageButton"
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -136,10 +137,12 @@
     </LinearLayout>
 
     <Button
+        android:backgroundTint="@color/buttons"
         android:id="@+id/prefNextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="Set"
+        android:textColor="@color/black"
         android:layout_gravity="center"
 
         />

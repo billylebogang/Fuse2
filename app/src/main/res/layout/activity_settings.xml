@@ -7,6 +7,7 @@
     tools:context=".Settings">
 
     <LinearLayout
+        android:background="@drawable/untitled"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -37,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Your details"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -104,6 +106,7 @@
 
         <Button
             android:id="@+id/signoutBtn"
+            android:backgroundTint="@color/buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -111,9 +114,22 @@
 
         <Button
             android:id="@+id/addDp"
+            android:backgroundTint="@color/buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add picture+" />
+        <Button
+            android:id="@+id/update_profile"
+            android:backgroundTint="@color/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change password" />
+        <Button
+            android:id="@+id/update_prefs"
+            android:backgroundTint="@color/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change preferences" />
 
         <TextView
             android:id="@+id/errorBar1"

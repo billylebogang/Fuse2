@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -168,9 +169,10 @@ public class Messages extends AppCompatActivity {
     }
 
     private String getDateTime(){
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar calendar = Calendar.getInstance();
+        return dateFormat.format(calendar.getTime());
     }
 
     protected Message createMessage(String sender,String receiver){
@@ -205,6 +207,8 @@ public class Messages extends AppCompatActivity {
             public void onSuccess(Void unused) {
 
                 Toast.makeText(Messages.this, "message sent!", Toast.LENGTH_SHORT).show();
+                input_message.setText("");
+                input_message.requestFocus();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

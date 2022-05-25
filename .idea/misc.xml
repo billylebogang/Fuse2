@@ -3,22 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.135" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_send_chat1_background.xml" value="0.135" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_send_chat2_background.xml" value="0.135" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_send_chat_background.xml" value="0.135" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_send_message_background.xml" value="0.135" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/drawable/ic_send_message_foreground.xml" value="0.135" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_chats.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_create_account.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_dashboard.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_drawer_base.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_matches.xml" value="0.1" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_matches.xml" value="0.25" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_messages.xml" value="0.25" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_messages2.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_notifications.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_preferences.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_reserves.xml" value="0.1" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_reserves.xml" value="0.22" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_settings.xml" value="0.22" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_signin.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_update_profile.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/activity_welcome.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/chatItem.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/chat_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/content_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/itemmatches.xml" value="0.22447916666666667" />
@@ -27,6 +36,11 @@
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/main_drawer_header.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/layout/message_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/menu/main_drawer_menu.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/mipmap-anydpi-v26/ic_send_chat.xml" value="0.102" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/mipmap-anydpi-v26/ic_send_chat1.xml" value="0.1" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/mipmap-anydpi-v26/ic_send_chat_round.xml" value="0.102" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/mipmap-anydpi-v26/ic_send_message.xml" value="0.102" />
+        <entry key="..\:/Users/Lebogang/AndroidStudioProjects/Fuse2/app/src/main/res/mipmap-anydpi-v26/ic_send_message_round.xml" value="0.102" />
       </map>
     </option>
   </component>
@@ -35,5 +49,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22447916666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>

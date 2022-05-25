@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Messages"
+    android:background="@color/primary"
     android:orientation="vertical">
 
 
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#00BCD4"
+        android:background="@color/primary"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -21,12 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Inbox"
+            android:textColor="@color/light"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <Button
             android:id="@+id/see_sent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/light"
+            android:textColor="@color/black"
             android:text="see sent"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -44,27 +48,33 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="6"
+        android:background="@color/buttons"
+        android:layout_margin="10dp"
+        android:padding="5dp"
         android:paddingTop="15dp">
 
 
         <EditText
 
+            android:layout_gravity="bottom"
             android:id="@+id/input_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="25"
             android:ems="10"
             android:hint="say something"
-            android:gravity="start|top"
             android:inputType="textMultiLine" />
 
         <ImageButton
             android:id="@+id/send_message_btn"
             android:layout_width="55dp"
             android:layout_height="55dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
             android:padding="5dp"
-            app:srcCompat="@drawable/ic_send_message_foreground" />
+
+            tools:src="@drawable/send_icon" />
 
 
     </LinearLayout>

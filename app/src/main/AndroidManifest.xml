@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fuse2">
         <activity
+            android:name=".updateProfile"
+            android:exported="false" />
+        <activity
             android:name=".Messages2"
             android:exported="false" />
         <activity

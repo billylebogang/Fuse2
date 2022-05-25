@@ -47,7 +47,7 @@ public class Settings extends DrawerBase {
 
     TextView settingsError, name,detailsSurname,detailsDateOfBirth, detailsEmail, detailsLocation,detailsBio;
     ImageView dp;
-    Button signoutBtn, addDp;
+    Button signoutBtn, addDp, updateBtn, update_prefs;
 
     //database
     private FirebaseAuth mAuth; FirebaseUser USER;
@@ -81,6 +81,8 @@ public class Settings extends DrawerBase {
 
 
         //ui
+        updateBtn = findViewById(R.id.update_profile);
+        update_prefs = findViewById(R.id.update_prefs);
         dp = findViewById(R.id.dp);
         name = findViewById(R.id.deailsName);
         detailsSurname = findViewById(R.id.detailsSurname);
@@ -93,6 +95,19 @@ public class Settings extends DrawerBase {
 
         addDp = findViewById(R.id.addDp);
 
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), updateProfile.class));
+            }
+        });
+
+        update_prefs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Settings.this, Preferences.class));
+            }
+        });
 
         signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
