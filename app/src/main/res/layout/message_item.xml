@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
     app:cardCornerRadius="10dp"
+    android:background="@color/message_back"
     android:layout_margin="16dp"
+
     >
 
 
@@ -14,7 +15,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <TextView
                 android:id="@+id/message_content"
@@ -22,18 +24,16 @@
                 android:layout_height="wrap_content"
                 android:text="Exsee lengwanda, I wanna match lwena, "
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:padding="8dp"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/message_time"
-                    android:text="12:50" />
+
                 <TextView
                     android:layout_marginLeft="15dp"
                     android:layout_width="wrap_content"

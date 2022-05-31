@@ -74,13 +74,15 @@
 
         </LinearLayout>
 
+
         <ImageView
             android:id="@+id/userdp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/profile"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            />
 
     </LinearLayout>
 

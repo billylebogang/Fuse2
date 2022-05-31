@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="25dp"
-        android:background="@color/primary"
+        android:background="@drawable/back"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView

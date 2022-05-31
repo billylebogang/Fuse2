@@ -54,6 +54,17 @@ public class CreateAccount extends AppCompatActivity {
         });
 
 
+        loginInsteadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(CreateAccount.this, Login.class));
+
+
+            }
+        });
+
+
 
     }
 

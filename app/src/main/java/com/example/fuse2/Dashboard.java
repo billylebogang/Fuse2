@@ -84,10 +84,10 @@ public class Dashboard extends DrawerBase {
         //picture thing
        // profileImage = findViewById(R.id.dpImage);
 
-        myName = findViewById(R.id.namehere);
+       /* myName = findViewById(R.id.namehere);
         pref_age =findViewById(R.id.pref_age);
         pref_location = findViewById(R.id.pref_location);
-        pref_gender = findViewById(R.id.pref_gender);
+        pref_gender = findViewById(R.id.pref_gender);*/
 
 
         //bind to the drawer
@@ -97,9 +97,11 @@ public class Dashboard extends DrawerBase {
 
         // getting users to display for match
 
+        getProfile();//getting user data to display
+
         getUserData(); //getting user preferences
 
-        getProfile(); //getting user data to display
+
 
 
         DBHelper dbHelper = new DBHelper();
@@ -158,24 +160,40 @@ public class Dashboard extends DrawerBase {
 
     public void getProfile(){
 
-        mDatabase.child(USER.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Map<String, String> usr =(HashMap<String, String>) snapshot.getValue();
+        try {
+            mDatabase.child(USER.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Map<String, String> usr =(HashMap<String, String>) snapshot.getValue();
 
-                Log.e("USER DEATILS", "onDataChange: "+ usr.get("name") );
+                    if(usr == null){
+                        Toast.makeText(Dashboard.this, "You profile has not been set, please set profile", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Dashboard.this, Register.class));
+                        finish();
+                    }
+                    else{
+                        Log.e("USER DEATILS", "onDataChange: "+ usr.get("name") );
 
-                String myname = usr.get("name")+" "+usr.get("surname");
-                myName.setText(myname);
+                        String myname = usr.get("name")+" "+usr.get("surname");
+                        myName.setText(myname);
+                    }
 
+                }
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
 
-            }
-        });
+        }
+        catch(Exception e){
+            Log.e("Dashboard profile", "getProfile: "+e.getMessage() );
+        }
+        finally {
+
+        }
+
 
     }
 
@@ -191,18 +209,18 @@ public class Dashboard extends DrawerBase {
 
                     map =(HashMap) task.getResult().getValue();
 
-                    pref_age.setText(map.get("ageFrom"));
-                    pref_location.setText(map.get("location"));
-                    pref_gender.setText(map.get("gender"));
+                    if(map != null){
+                        pref_age.setText(map.get("ageFrom"));
+                        pref_location.setText(map.get("location"));
+                        pref_gender.setText(map.get("gender"));
+                        getData(map.get("location"),map.get("gender"), "20", "25");
+                    }
+                    else{
+                        Toast.makeText(Dashboard.this, "You preferences has not been set, please set profile", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Dashboard.this, Preferences.class));
+                        finish();
+                    }
 
-
-                    Log.e("AGE FROM", "onComplete: "+ map.get("ageFrom"));
-
-                    Log.e("LOCATION", "onComplete: "+ map.get("location"));
-
-                    Log.e("GENDER", "onComplete: "+ map.get("gender"));
-
-                    getData(map.get("location"),map.get("gender"), "20", "25");
 
                 }
                 else{

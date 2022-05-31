@@ -39,8 +39,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         holder.message_content.setText(message.getContent());
         holder.date.setText(message.getDate());
-
-
     }
 
     @Override
@@ -58,7 +56,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             //instantiating the variables
             message_content = itemView.findViewById(R.id.message_content);
-            time = itemView.findViewById(R.id.message_time);
             date = itemView.findViewById(R.id.message_date);
         }
     }

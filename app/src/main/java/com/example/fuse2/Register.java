@@ -176,7 +176,7 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         else if(TextUtils.isEmpty(email)){
             registerEmail.setError("Email is required");
         }
-        else if(TextUtils.isEmpty(location)){
+        else if(TextUtils.isEmpty(location) || location.equalsIgnoreCase("Set location")){
             Toast.makeText(this, "Location is required", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(birthday)){

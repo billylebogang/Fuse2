@@ -4,11 +4,23 @@
     <color name="buttons">#B0DB72</color>
     <color name="light">#FAFCB4</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="purple_500">#9C27B0</color>
     <color name="purple_700">#7B1FA2</color>
     <color name="purple_200">#7B1FA2</color>
     <color name="teal_200">#80CBC4</color>
     <color name="teal_700">#00796B</color>
+    <color name="hotpink">#FF69B4</color>
+    <color name="pink">#FFB6C1</color>
+    <color name="pink1">#F4C2C2</color>
+    <color name="pink2">#EBA7AC</color>
+    <color name="pink3">#ff8fab</color>
+    <color name="lightpurple">#B589D6</color>
+    <color name="lightpurple2">#9969c7</color>
+    <color name="lightpurple3">#804FB3</color>
+    <color name="lightpurple4">#6a359c</color>
+    <color name="message_back">#ff655b</color>
+
+
 
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Preferences"
-    android:background="@drawable/untitled"
+    android:background="@color/hotpink"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="Set Preferences"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         />
 
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:hint="Preferred location"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         />
 
 
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Set age range"
+        android:textColor="@color/white"
 
         />
 
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="from"
+            android:textColor="@color/white"
             android:inputType="number"
             />
 
@@ -57,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="to"
+            android:textColor="@color/white"
             android:inputType="number"
             />
 
@@ -81,12 +85,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="Men" />
 
             <RadioButton
                 android:id="@+id/preferedWomen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="Women" />
 
@@ -94,6 +100,7 @@
                 android:id="@+id/preferedAll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="All" />
 
@@ -137,12 +144,13 @@
     </LinearLayout>
 
     <Button
-        android:backgroundTint="@color/buttons"
+        android:background="@drawable/circle"
         android:id="@+id/prefNextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set"
-        android:textColor="@color/black"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/white"
         android:layout_gravity="center"
 
         />
@@ -154,7 +162,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="25dp"
-        android:text="errors here"
         android:layout_gravity="bottom"
 
         />

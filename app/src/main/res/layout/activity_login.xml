@@ -5,59 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="@color/primary"
+    android:background="@drawable/back"
     android:orientation="vertical"
     android:padding="20dp">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/fuselove" />
+
     <TextView
-    android:id="@+id/textView"
-    android:layout_width="240dp"
-    android:layout_height="46dp"
-    android:layout_marginTop="24dp"
-    android:text="Log in"
-        android:textColor="@color/white"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-    />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome To Fuse!\n Log In or Sign Up To Merge With Your Crush!"
+        android:textColor="@color/hotpink"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:hint="Enter email"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_200"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
+        android:background="@drawable/input_box"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:padding="5dp"
          />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
         android:hint="Enter password"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_200"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-         />
+        android:background="@drawable/input_box"
+         android:padding="5dp"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:enabled="true"
         android:backgroundTint="@color/buttons"
         android:text="Sign in"
         android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
          />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textStyle="bold"
+        android:textColor="@color/hotpink"
+        android:layout_gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="10dp"
+        />
 
     <Button
         android:id="@+id/loginRegisterBtn"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/buttons"
-        android:text="Register"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:text="Create account"
+        android:background="@drawable/circle"
          />
 
     <ProgressBar
@@ -65,8 +92,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:visibility="invisible"
 
 
@@ -74,9 +101,13 @@
 
     <Button
         android:id="@+id/forgotPasswordBtn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
+        android:layout_marginStart="80dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/buttons"
-        android:text="forgot password" />
+        android:text="forgot password"
+        android:background="@drawable/circle"
+        android:layout_marginBottom="20dp"
+        />
 
 </LinearLayout>

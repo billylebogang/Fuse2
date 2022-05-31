@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Register"
     android:orientation="vertical"
-    android:background="@drawable/untitled"
+    android:background="@color/hotpink"
     >
 
     <ImageView
@@ -14,16 +14,8 @@
         android:layout_width="97dp"
         android:layout_height="82dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/fuse_prev_ui" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Registeration"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-         />
+        android:layout_marginTop="35dp"
+        app:srcCompat="@drawable/fuselove" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Profile"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     />
 
@@ -109,7 +101,8 @@
                     android:id="@+id/selectDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/buttons"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/purple_700"
                     android:layout_weight="3"
                     android:text="Select"/>
 
@@ -119,7 +112,7 @@
             <Spinner
                 android:id="@+id/RegisterLocation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 />
 
             <RadioGroup
@@ -137,6 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="Male" />
 
                 <RadioButton
@@ -144,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="Female" />
 
                 <RadioButton
@@ -151,6 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/white"
                     android:text="Other" />
             </RadioGroup>
 
@@ -172,18 +168,22 @@
 
                 <Button
                     android:id="@+id/registerBtn"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
+                    android:layout_gravity="center"
                     android:enabled="true"
                     android:backgroundTint="@color/buttons"
                     android:text="Register"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/circle"
                      />
                 <Button
                     android:id="@+id/registerLoginBtn"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/buttons"
+                    android:background="@drawable/circle"
                     android:text="Log in"
                      />
                 <ProgressBar

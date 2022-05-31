@@ -36,8 +36,7 @@ public class Messages extends AppCompatActivity {
 
     //UI variables
     private EditText input_message;
-    private ImageButton send_message_btn;
-    private Button see_sent;
+    private ImageButton send_message_btn, see_sent;
 
 
     //adapter that connects to the UI item thing

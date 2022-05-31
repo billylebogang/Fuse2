@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@drawable/back"
     tools:context=".Dashboard">
 
     <LinearLayout
@@ -28,62 +28,31 @@
                 <ImageButton
                     android:id="@+id/dpImage"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="114dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_addpic_foreground" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="30dp">
 
-
-                <TextView
-                    android:id="@+id/namehere"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Name surname"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/white" />
-
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="age"
-                        android:id="@+id/pref_age"/>
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="location"
-                        android:id="@+id/pref_location"/>
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="pref_gender"
-                        android:id="@+id/pref_gender"/>
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="135dp"
+                    android:layout_height="112dp"
+                    android:background="@drawable/fuselove"
+                    android:scaleType="centerCrop"
+                    android:scaleX="1"
+                    android:layout_gravity="center"
+                    />
             </LinearLayout>
 
 
 
-
         </LinearLayout>
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listUsers"

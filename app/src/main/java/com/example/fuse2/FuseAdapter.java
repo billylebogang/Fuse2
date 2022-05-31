@@ -74,11 +74,20 @@ public class FuseAdapter extends RecyclerView.Adapter<FuseAdapter.MyViewHolder> 
 
             }
         });
-
-
-
+        
+       /* holder.round.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list.remove(usr);
+                Toast.makeText(context, "Remove clicked", Toast.LENGTH_SHORT).show();
+            }
+        });*/
+        
         holder.names.setText(usr.getName()+" "+usr.getSurname());
-        holder.age.setText(usr.getBirthdate());
+        //String s = usr.getBirthdate();
+        holder.age.setText(
+                2022 - Integer.parseInt(usr.getBirthdate().substring(usr.getBirthdate().length()-4))+""
+        );
         holder.location.setText(usr.getLocation());
     }
 
