@@ -84,10 +84,10 @@ public class Dashboard extends DrawerBase {
         //picture thing
        // profileImage = findViewById(R.id.dpImage);
 
-       /* myName = findViewById(R.id.namehere);
+        myName = findViewById(R.id.namehere);
         pref_age =findViewById(R.id.pref_age);
         pref_location = findViewById(R.id.pref_location);
-        pref_gender = findViewById(R.id.pref_gender);*/
+        pref_gender = findViewById(R.id.pref_gender);
 
 
         //bind to the drawer

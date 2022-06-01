@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +22,8 @@ public class CreateAccount extends AppCompatActivity {
 
     EditText accountEmail, accountPassword, accountPassword1;
 
-    Button createAccBtn, loginInsteadBtn;
+    Button createAccBtn;
+    TextView loginInstead;
 
 
     //firebase stuff
@@ -31,7 +33,7 @@ public class CreateAccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.create_account);
 
         //Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -43,7 +45,7 @@ public class CreateAccount extends AppCompatActivity {
         //buttons
 
         createAccBtn = findViewById(R.id.createAccBtn);
-        loginInsteadBtn = findViewById(R.id.loginInsteadBtn);
+        loginInstead = findViewById(R.id.loginInstead);
 
         createAccBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +56,7 @@ public class CreateAccount extends AppCompatActivity {
         });
 
 
-        loginInsteadBtn.setOnClickListener(new View.OnClickListener() {
+        loginInstead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

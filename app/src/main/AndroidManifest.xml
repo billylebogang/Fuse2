@@ -57,13 +57,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
-            android:name=".Signin"
-            android:exported="false" />
-        <activity
             android:name=".Register"
-            android:exported="false" />
-        <activity
-            android:name=".Welcome"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

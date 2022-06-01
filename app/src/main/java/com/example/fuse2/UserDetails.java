@@ -2,7 +2,7 @@ package com.example.fuse2;
 
 public class UserDetails {
 
-    protected String name,gender, surname,email, location, birthdate;
+    protected String name,gender, surname,email, location, birthdate, bio;
 
     //default constructor
     public UserDetails(){
@@ -13,13 +13,14 @@ public class UserDetails {
         this.birthdate = "00/00/00";
         this.location = "default";
         this.gender = "gender";
+        this.bio = "bio";
 
     }
 
     //param constructor
 
 
-    public UserDetails( String name, String surname,String gender, String email, String location, String birthdate) {
+    public UserDetails( String name, String surname,String gender, String email, String location, String birthdate, String bio) {
 
         this.gender = gender;
         this.name = name;
@@ -27,6 +28,7 @@ public class UserDetails {
         this.email = email;
         this.location = location;
         this.birthdate = birthdate;
+        this.bio = bio;
     }
 
     //getters and setters
@@ -39,7 +41,6 @@ public class UserDetails {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -47,7 +48,6 @@ public class UserDetails {
     public String getSurname() {
         return surname;
     }
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
@@ -55,7 +55,6 @@ public class UserDetails {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -63,7 +62,6 @@ public class UserDetails {
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
@@ -71,7 +69,6 @@ public class UserDetails {
     public String getBirthdate() {
         return birthdate;
     }
-
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
@@ -79,10 +76,10 @@ public class UserDetails {
     public String getGender() {
         return gender;
     }
+    public void setGender(String gender) { this.gender = gender; }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public  void setBio(String bio) { this.bio = bio;}
+    public String getBio(){ return bio;}
 
     @Override
     public String toString() {
@@ -92,6 +89,7 @@ public class UserDetails {
                 ", email='" + email + '\'' +
                 ", location='" + location + '\'' +
                 ", birthdate='" + birthdate + '\'' +
+                ", bio= '" + bio + '\'' +
                 '}';
     }
 }

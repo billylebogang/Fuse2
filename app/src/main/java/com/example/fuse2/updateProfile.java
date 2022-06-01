@@ -24,11 +24,11 @@ public class updateProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_profile);
+        setContentView(R.layout.update_pass);
 
 
-        newpassword = findViewById(R.id.newpassword);
-        newpassword1 = findViewById(R.id.newpassword1);
+        newpassword = findViewById(R.id.newPassword);
+        newpassword1 = findViewById(R.id.newPassword1);
         submit = findViewById(R.id.submit);
 
         USER = FirebaseAuth.getInstance().getCurrentUser();

@@ -1,11 +1,11 @@
 package com.example.fuse2;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
 
 import com.example.fuse2.databinding.ActivityNotificationsBinding;
 import com.google.firebase.auth.FirebaseAuth;

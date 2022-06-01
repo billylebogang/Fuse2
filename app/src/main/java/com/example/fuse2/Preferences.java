@@ -39,7 +39,7 @@ public class Preferences extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferences);
+        setContentView(R.layout.preferences);
 
         //UI instantiations
         preferedLocation = findViewById(R.id.preferedLocation);

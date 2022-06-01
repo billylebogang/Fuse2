@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,26 +26,27 @@ public class Login extends AppCompatActivity {
     EditText username, password;
     Button loginBtn, loginRegisterBtn,resetpassword;
     FirebaseAuth mAuth;
+    TextView linkSignUp, linkForgot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login);
 
 
         mAuth = FirebaseAuth.getInstance();
 
-        loginBtn = findViewById(R.id.loginBtn);
-        loginRegisterBtn = findViewById(R.id.loginRegisterBtn);
+        loginBtn = (Button) findViewById(R.id.loginBtn);
+        //loginRegisterBtn = (Button) findViewById(R.id.loginRegisterBtn);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        resetpassword = findViewById(R.id.forgotPasswordBtn);
+        //resetpassword = (Button)findViewById(R.id.forgotPasswordBtn);
         loading = findViewById(R.id.loading);
-
-
+        linkSignUp = findViewById(R.id.link_signup);
+        linkForgot = findViewById(R.id.forgotPassword);
 
         //forgot password
-        resetpassword.setOnClickListener(new View.OnClickListener() {
+        linkForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = username.getText().toString().trim();
@@ -65,13 +68,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-
-        loginRegisterBtn.setOnClickListener(new View.OnClickListener() {
+        linkSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Login.this, CreateAccount.class));
-
+            public void onClick(View v) {
+                Log.d("Changing activity", "onClick: navigating to register screen");
+                Intent intent = new Intent(Login.this, CreateAccount.class);
+                startActivity(intent);
             }
         });
 

@@ -8,6 +8,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +45,7 @@ import java.util.Calendar;
 
 public class Register extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
 
-
+    DatePickerDialog date;
     //FROM UI
     private String selectedlocation;
     private EditText  password, password2;
@@ -52,7 +53,7 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
     private ProgressBar progressBar;
 
     //still ui staff
-    private EditText registerName,registerSurname, registerEmail,registerBirthdate;
+    private EditText registerName,registerSurname, registerEmail,registerBirthdate, bio;
     private Spinner  registerLocation;
     private Button profileSetupNextBtn, selectDate;
     private RadioGroup registerGenderGroup;
@@ -72,23 +73,24 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.register);
 
 
         //initializing the fields
         progressBar = findViewById(R.id.loading);
         registerBtn = findViewById(R.id.registerBtn);
-        registerLoginBtn = findViewById(R.id.registerLoginBtn);
-
+        //registerLoginBtn = findViewById(R.id.registerLoginBtn);
         registerName = findViewById(R.id.registerName);
         registerSurname = findViewById(R.id.registerSurname);
         registerEmail = findViewById(R.id.registerEmail);
         registerBirthdate = findViewById(R.id.registerBirthdate);
-        selectDate = findViewById(R.id.selectDate);
+        bio = findViewById(R.id.bio);
+        //selectDate = findViewById(R.id.selectDate);
         errorBar = findViewById(R.id.errorBar);
 
         registerGenderGroup = findViewById(R.id.registerGenderGroup);
 
+        getlocation();
 
         //database stuff
         mAuth = FirebaseAuth.getInstance();
@@ -100,18 +102,28 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         //setting the email
         registerEmail.setText(USER.getEmail());
 
-        selectDate.setOnClickListener(new View.OnClickListener() {
+        registerBirthdate.setInputType(InputType.TYPE_NULL);
+
+        registerBirthdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datePick();
+                final Calendar cal = Calendar.getInstance();
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                int month = cal.get(Calendar.MONTH);
+                int year = cal.get(Calendar.YEAR);
+
+                date = new DatePickerDialog(Register.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        registerBirthdate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                    }
+                }, year, month, day);
+                date.show();
             }
         });
 
+
         //on click to choose an image
-
-
-
-        getlocation();
 
 
         //TODO: USE FULL CODE BELOW
@@ -130,22 +142,19 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         });
 
 
-        registerLoginBtn.setOnClickListener(new View.OnClickListener() {
+        /*registerLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 startActivity(new Intent(Register.this, Login.class));
 
             }
-        });
+        });*/
 
     }
 
 
     //radio button checked
-
-
-
     public UserDetails createUserDetails(){
         //getting input data from the input fields
         String name = registerName.getText().toString().trim();
@@ -153,6 +162,7 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         String email = registerEmail.getText().toString().trim();
         String birthday = registerBirthdate.getText().toString().trim();
         String location = selectedlocation;
+        String biography = bio.getText().toString().trim();
 
 
         //gender thing
@@ -182,10 +192,13 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         else if(TextUtils.isEmpty(birthday)){
             registerBirthdate.setError("Birthdate is required");
         }
+        else if(TextUtils.isEmpty(biography)){
+            bio.setError("Add details about your self");
+        }
         else{
 
             //creating a user profile from data captured
-            usrD = new UserDetails(name,surname,gender,email,location,birthday);
+            usrD = new UserDetails(name,surname,gender,email,location,birthday,biography);
 
 
         }
@@ -201,12 +214,9 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
             public void onComplete(@NonNull Task<Void> task) {
 
                 if(task.isSuccessful()){
-
                     // starting activity
-
                     startActivity(new Intent(Register.this, Preferences.class));
                     finish();
-
                 }
                 else{
                     Toast.makeText(Register.this, "is not working", Toast.LENGTH_SHORT).show();
@@ -218,29 +228,6 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
 
     }
 
-    public void datePick(){
-
-        Calendar cal = Calendar.getInstance();
-        final int year = cal.get(Calendar.YEAR);
-        final int month = cal.get(Calendar.MONTH);
-        final int day = cal.get(Calendar.DAY_OF_MONTH);
-
-
-        DatePickerDialog dpd = new DatePickerDialog(Register.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-
-                month = month+1;
-                String date = day+"/"+month+"/"+year;
-                registerBirthdate.setText( date);
-
-            }
-        }, year, month, day);
-        dpd.show();
-    }
-
-
-
     public void getlocation(){
 
         registerLocation = findViewById(R.id.RegisterLocation);
@@ -249,11 +236,8 @@ public class Register extends AppCompatActivity  implements AdapterView.OnItemSe
         , android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         registerLocation.setAdapter(adapter);
-
         registerLocation.setOnItemSelectedListener(this);
-
 
     }
 

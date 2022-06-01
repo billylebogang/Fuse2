@@ -142,7 +142,7 @@ public class Settings extends DrawerBase {
                     detailsDateOfBirth.setText(profile.getBirthdate());
                     detailsEmail.setText(profile.getEmail());
                     detailsLocation.setText(profile.getLocation());
-                    detailsBio.setText("I am a nice guy by nature, i want lengwanda");
+                    detailsBio.setText(profile.getBio());
 
 
                     Toast.makeText(Settings.this, " "+ profile.getEmail(), Toast.LENGTH_SHORT).show();
@@ -305,7 +305,7 @@ public class Settings extends DrawerBase {
                          String pref_location = (map.get("location"));
                         String pref_gender=(map.get("gender"));
 
-                        detailsBio.setText("I prefer "+pref_gender+" from "+ pref_location+" aged from "+ pref_age+" to "+pref_age2+"." );
+                        //detailsBio.setText("I prefer "+pref_gender+" from "+ pref_location+" aged from "+ pref_age+" to "+pref_age2+"." );
                     }
 
                 }
